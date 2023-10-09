@@ -1,10 +1,9 @@
 from django.db import models
 
-from suppliers.models import Link
 
 
 class Product(models.Model):
-    factory = models.ForeignKey(Link, on_delete=models.CASCADE, verbose_name='завод')
+    factory = models.ForeignKey('suppliers.Link', on_delete=models.CASCADE, verbose_name='завод')
     name = models.CharField(max_length=100, verbose_name='название')
     model = models.CharField(max_length=100, verbose_name='модель')
     release_date = models.DateField(verbose_name='дата выхода')

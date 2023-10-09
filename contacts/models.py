@@ -1,10 +1,8 @@
 from django.db import models
 
-from suppliers.models import Link
-
 
 class Contact(models.Model):
-    link = models.ForeignKey(Link, on_delete=models.CASCADE, verbose_name='цепь звена')
+    link = models.ForeignKey('suppliers.Link', on_delete=models.CASCADE, verbose_name='цепь звена')
     email = models.EmailField()
     country = models.TextField(verbose_name='страна')
     city = models.TextField(verbose_name='город')
