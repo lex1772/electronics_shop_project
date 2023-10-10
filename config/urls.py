@@ -17,6 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
+# Разделяем урлы для удобства хранения в приложении
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('suppliers.urls')),

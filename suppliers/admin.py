@@ -25,7 +25,8 @@ def cancel_the_debt(modeladmin, request, queryset):
 @admin.register(Link)
 class LinkAdmin(admin.ModelAdmin):
     inlines = [ContactInLine, ProductInLine, ]
-    list_display = ('name', 'supplier', 'supplier_url', 'debt', 'creation_time', 'contacts',)
+    list_display = ('name', 'supplier', 'supplier_url', 'debt',
+                    'creation_time', 'contacts',)
     list_filter = ('contact__city',)
     actions = (cancel_the_debt,)
 
@@ -33,7 +34,8 @@ class LinkAdmin(admin.ModelAdmin):
         link_supplier = obj.supplier
         if link_supplier is not None:
             return format_html(
-                f"<a href='{settings.BASE_URL}/admin/suppliers/link/{link_supplier.id}'>{link_supplier.name}</a>")
+                f"<a href='{settings.BASE_URL}/admin/suppliers/link/"
+                f"{link_supplier.id}'>{link_supplier.name}</a>")
 
     supplier_url.allow_tags = True
     supplier_url.short_description = 'Ссылка на поставщика'
